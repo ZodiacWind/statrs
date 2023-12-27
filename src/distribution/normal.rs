@@ -4,6 +4,7 @@ use crate::statistics::*;
 use crate::{consts, Result, StatsError};
 use rand::Rng;
 use std::f64;
+use serde::{Deserialize, Serialize};
 
 /// Implements the [Normal](https://en.wikipedia.org/wiki/Normal_distribution)
 /// distribution
@@ -18,7 +19,7 @@ use std::f64;
 /// assert_eq!(n.mean().unwrap(), 0.0);
 /// assert_eq!(n.pdf(1.0), 0.2419707245191433497978);
 /// ```
-#[derive(Debug, Copy, Clone, PartialEq)]
+#[derive(Debug, Copy, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Normal {
     mean: f64,
     std_dev: f64,
